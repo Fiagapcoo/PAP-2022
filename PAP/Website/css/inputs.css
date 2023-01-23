@@ -1,0 +1,41 @@
+input[type=text] {
+    border: none;
+    border-bottom: 4px solid lightblue;
+    outline: none;
+}
+input[type=email] {
+    border: none;
+    border-bottom: 4px solid lightblue;
+    outline: none;
+}
+input[type=password] {
+    border: none;
+    border-bottom: 4px solid lightblue;
+    outline: none;
+}
+
+input[type=number] {
+    border: none;
+    border-bottom: 4px solid lightblue;
+    outline: none
+}
+
+input[type=submit] {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: green;
+    color: white;
+}
+option {
+    border: none;
+    border-bottom: 4px solid lightblue;
+}

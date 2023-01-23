@@ -1,0 +1,13 @@
+T_S = Turismo de saúde
+
+T_SP = Turismo de sol e praia
+
+T_A = Turismo de aventura
+
+T_D = Turismo de desporto
+
+T_R = Turismo Rural
+
+T_E = Ecoturismo
+
+T_C = Turismo Cultural
