@@ -1,0 +1,75 @@
+MDScreen:
+    md_bg_color : [215/255,228/255,247/255,1]
+    MDCard:
+        size_hint: None,None
+        size: 320,600
+        pos_hint: {"center_x":.5,"center_y":.5}
+        elevation: 15
+        md_bg_color: [215/255,228/255,247/255,1]
+        padding: 20
+        spacing: 30
+        orientation: "vertical"
+
+        MDLabel:
+            text: 'Recuperar Password'
+            font_style: 'Button'
+            font_size: 45
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+        MDTextFieldRound:
+            id: user
+            color: 1, 0, 0, 1
+            hint_text: "Username"
+            icon_left: "account"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+        MDTextFieldRound:
+            id: password
+            hint_text: "nova_password"
+            icon_left: "eye-off"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+            password: True
+        MDTextFieldRound:
+            id: password2
+            hint_text: "repetir_nova_password"
+            icon_left: "eye-off"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+            password: True
+        MDTextFieldRound:
+            id: cod
+            hint_text: "Código"
+            icon_left: "eye-off"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+            disabled: True
+        MDRoundFlatButton:
+            on_press: app.email()
+            text: "Enviar Email"
+            pos_hint: {"center_x":.5}
+            font_size: 15
+        MDRoundFlatButton:
+            id: but_verifica
+            on_press: app.muda_senha()
+            text: "Mudar a Password"
+            pos_hint: {"center_x":.5}
+            font_size: 15
+            disabled: True
+        Widget:
+            size_hint_y: None
+            height: 30

@@ -1,0 +1,220 @@
+<ContentNavigationDrawer>:
+
+    ScrollView:
+
+        MDList:
+
+            OneLineListItem:
+                text: "Aplicação"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 1"
+
+            OneLineListItem:
+                text: "Ir de bicicleta"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 2"
+
+            OneLineListItem:
+                text: "Definições"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 3"
+
+            OneLineListItem:
+                text: "Identificação de Bugs"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 4"
+            
+            OneLineListItem:
+                text: "Sugestão de locais"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 5"
+
+            OneLineListItem:
+                text: "Avaliação"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 6"
+
+            OneLineListItem:
+                text: "Logout"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 7"
+
+
+Screen:
+
+    MDToolbar:
+        id: toolbar
+        pos_hint: {"top": 1}
+        elevation: 10
+        title: "Conhece Portugal"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+    MDNavigationLayout:
+        x: toolbar.height
+
+        ScreenManager:
+            id: screen_manager
+
+            Screen:
+                name: "scr 1"
+                MDLabel:
+                    text: 'Conhecer Portugal'
+                    font_style: 'Button'
+                    pos_hint: {"top": 0.91}
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    padding_y: 15
+                Image:
+                    source: "/home/filipe-linux/PycharmProjects/pap/APP/img/conhece_portugal.png"
+                    size_hint: 1, 0.8
+                    pos_hint: {"top": 0.8}
+                    allow_stretch: False
+                    keep_ratio: False
+            Screen:
+                name: "scr 2"
+
+                MDTextField:
+                    id: local_a_ir
+                    pos_hint: {"center_y": 0.7}
+                    hint_text: "Local cujo deseja ir"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDRoundFlatButton:
+                    on_press: app.bike()
+                    text: "Definir Rota"
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    font_size: 15
+
+            Screen:
+                name: "scr 3"
+
+                MDTextField:
+                    id: dist
+                    pos_hint: {"center_y": 0.8}
+                    hint_text: "Distancia maxima a que o local possa estar"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDTextField:
+                    id: autonomia
+                    pos_hint: {"center_y": 0.7}
+                    hint_text: "Autonomia da sua bicicleta (0 de n for eletrica)"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+
+
+                MDRoundFlatButton:
+                    on_press: app.conf()
+                    text: "Guardar Configurações"
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    font_size: 15
+
+            Screen:
+                name: "scr 4"
+                MDTextField:
+                    id: bug
+                    pos_hint: {"center_y": 0.5}
+                    multiline: True
+                    hint_text: "descrição do bug"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDRoundFlatButton:
+                    on_press: app.bug()
+                    text: "Enviar bug"
+                    pos_hint: {'center_x': .5, 'center_y': .2}
+                    font_size: 15
+
+
+            Screen:
+                name: "scr 5"
+                MDTextField:
+                    id: tipo
+                    pos_hint: {"center_y": 0.8}
+                    hint_text: "Tipo de local (restaurante, percurso, etc.)"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDTextField:
+                    id: nome
+                    pos_hint: {"center_y": 0.6}
+                    hint_text: "Nome do local"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDTextField:
+                    id: localizacao
+                    pos_hint: {"center_y": 0.4}
+                    hint_text: "Localização do local"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDRoundFlatButton:
+                    on_press: app.sugestao()
+                    text: "Enviar bug"
+                    pos_hint: {'center_x': .5, 'center_y': .2}
+                    font_size: 15
+            Screen:
+                name: "scr 6"
+                MDTextField:
+                    id: tipo
+                    pos_hint: {"center_y": 0.8}
+                    hint_text: "Tipo de local (restaurante, percurso, etc.)"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDTextField:
+                    id: estrelas
+                    pos_hint: {"center_y": 0.6}
+                    hint_text: "Quantidade de estrelas que dás a este local (0-5)"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDTextField:
+                    id: comentario
+                    pos_hint: {"center_y": 0.4}
+                    hint_text: "Comentario construtivo sobre o local"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDTextField:
+                    id: nome
+                    pos_hint: {"center_y": 0.2}
+                    hint_text: "Nome do local a avaliar"
+                    helper_text_mode: "on_focus"
+                    helper_text_mode: "on_error"
+                    required: True
+                MDRoundFlatButton:
+                    on_press: app.avaliacao()
+                    text: "enviar avaliação"
+                    pos_hint: {'center_x': .5, 'center_y': .1}
+                    font_size: 15
+            Screen:
+                name: "scr 7"
+                MDRoundFlatButton:
+                    on_press: app.terminar()
+                    text: "Terminar Sessão"
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    font_size: 15
+                
+
+
+                    
+                    
+
+        MDNavigationDrawer:
+            id: nav_drawer
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
