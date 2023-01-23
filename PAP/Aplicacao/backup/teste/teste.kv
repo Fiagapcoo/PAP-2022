@@ -1,0 +1,60 @@
+#:kivy 1.7
+#:set fs '20sp'
+#:set mfont 'DroidSansMono.ttf'
+
+<Screen1>:
+  id: s1
+  bottom_label: bottom_label
+  mylistview: mylistview
+  filter_text: filter_text
+  BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint_y: 0.05
+      Button
+        id: clear_filter_button
+        text: 'X'
+        halign: 'center'
+        size_hint_x: 0.05
+        on_press: s1.clear_filter_button_press()
+      TextInput:
+        id: filter_text
+        text: ''
+        halign: 'center'
+        size_hint_x: 0.65
+      Button
+        id: filter_button
+        text: 'filter'
+        halign: 'center'
+        size_hint_x: 0.30
+        on_press: s1.filter_button_press()
+    ScrollView:
+      size_hint_y: 0.85
+      MyListView:
+        id: mylistview
+        width: 1.5*s1.width
+        size_hint: None, None
+    Label:
+      id: bottom_label
+      size_hint_y: 0.1
+      text: 'Bottom Label'
+
+
+<TextInput>:
+  text_size: self.size
+  auto_indent: False
+  multiline: False
+  padding: [0,0,0,0]
+  use_bubble: False
+  use_handles: False
+  font_name: mfont
+  font_size: fs
+  valign: 'middle'
+
+<Label>:
+  text_size: self.size
+  font_name: mfont
+  font_size: fs
+  halign: 'left'
+  valign: 'middle'
